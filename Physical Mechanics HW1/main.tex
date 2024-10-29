@@ -1,0 +1,269 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[letter, margin=0.5in]{geometry}
+\usepackage{amsmath}
+
+
+\setcounter{secnumdepth}{0} % Removes section numbering
+
+
+\date{\vspace{-4ex}}
+
+
+\title{Physical Mechanics HW1}
+\author{Damien Koon}
+
+\begin{document}
+
+\maketitle
+
+\centering{(1). For the two vectors:}
+
+\centering{$\vec{A} = \hat{i} + 2\hat{j} - \hat{k}$} 
+
+\centering{$\vec{B} = -2\hat{i} + 3\hat{j} + \hat{k}$}
+
+\hfill \break
+
+(a) $\vec{A} - \vec{B}$ and $|\vec{A} - \vec{B}|$
+
+\hfill \break
+
+$
+\vec{A} - \vec{B} = (1-(-2))\hat{i} + (2 - 3)\hat{j} + (-1 - 1)\hat{k} = \boldsymbol{3\hat{i} - \hat{j} -2\hat{k}}
+$ 
+
+$
+|\vec{A} - \vec{B}| =  \sqrt{(3)^2 + (-1)^2 + (-2)^2} = \sqrt{9 + 1 + 4} = \boldsymbol{\sqrt{14}}
+$
+
+\hfill \break
+
+(b) The component of $\vec{B}$ along $\vec{A}$ 
+
+$
+\hat{A} = \frac{A}{|A|} = \frac{\hat{i} + 2\hat{j} - \hat{k}}{\sqrt{6}} \rightarrow Comp_{\vec{B}} \vec{A} = \vec{B} \cdot \hat{A} = \frac{-2 + 6 - 1}{\sqrt{6}} = \boldsymbol{\frac{\sqrt{6}}{2}}
+$
+
+\hfill \break
+
+(c) The angle between $\vec{A}$ and $\vec{B}$
+
+$
+\vec{A} \cdot \vec{B} = |A||B|cos(\theta) \rightarrow \theta = cos^{-1}(\frac{\vec{A} \cdot \vec{B}}{|A||B|}) = cos^{-1}(\frac{-2 + 6 -1}{\sqrt{6} \sqrt{14}}) = cos^{-1}(\frac{\sqrt21}{14}) = \boldsymbol{70.89^{\circ}}
+$
+
+\hfill \break
+
+(d) $\vec{A} \times \vec{B}$
+
+$$
+\begin{bmatrix}
+    \hat{i} & \hat{j} & \hat{k} \\
+	1 & 2 & -1\\
+	-2 & 3 & 1 \\
+\end{bmatrix}
+= \hat{i}
+\begin{bmatrix}
+	2 & -1\\
+	3 & 1 \\
+\end{bmatrix}
+- \hat{j}
+\begin{bmatrix}
+	1 & -1\\
+	-2 & 1 \\
+\end{bmatrix}
++ \hat{k}
+\begin{bmatrix}
+	1 & 2\\
+	-2 & 3 \\
+\end{bmatrix}
+= (2 + 3)\hat{i} - (1 - 2) \hat{j} + (3 + 4) \hat{k} 
+$$
+$$
+= \boldsymbol{5\hat{i} + \hat{j} + 7 \hat{k}}
+$$
+
+\hfill \break
+
+
+(e) $(\vec{A} - \vec{B}) \times (\vec{A} + \vec{B})$
+
+\hfill \break
+
+$
+(\vec{A} - \vec{B}) = 3\hat{i} - \hat{j} -2\hat{k}
+$
+
+$
+\vec{A} + \vec{B} = (1+(-2))\hat{i} + (2 + 3)\hat{j} + (-1 + 1)\hat{k} = -\hat{i} + 5\hat{j}
+$
+
+$$
+\begin{bmatrix}
+    \hat{i} & \hat{j} & \hat{k} \\
+	3 & -1 & -2\\
+	-1 & 5 & 0 \\
+\end{bmatrix}
+= \hat{i}
+\begin{bmatrix}
+	-1 & -2\\
+	5 & 0 \\
+\end{bmatrix}
+- \hat{j}
+\begin{bmatrix}
+	3 & -2\\
+	-1 & 0 \\
+\end{bmatrix}
++ \hat{k}
+\begin{bmatrix}
+	3 & -1\\
+	-1 & 5 \\
+\end{bmatrix}
+= (0 + 7)\hat{i} - (0 - 2) \hat{j} + (15 - 1) \hat{k} 
+$$
+$$
+= \boldsymbol{7\hat{i} + 2\hat{j} + 14 \hat{k}}
+$$
+
+
+(2). A particle moves in a plane elliptical orbit described by the position vector:
+
+\large\centering{$\vec{r} = 2bsin(\omega t) \hat{i} + bcos(\omega t) \hat{j} $}
+
+\hfill \break
+
+(a) Find $\vec{v}, \vec{a}, $ and the particle's speed.
+
+$$
+\vec{v} = \frac{d \vec{r}}{dt} = \frac{d}{dt}[2bsin(\omega t) \hat{i} + bcos(\omega t) \hat{j}] = \boldsymbol{2b \omega cos(\omega t) \hat{i} - b\omega sin(\omega t) \hat{j}}
+$$
+
+$$
+\vec{a} = \frac{d \vec{v}}{dt} = \frac{d}{dt}[2b \omega cos(\omega t) \hat{i} - b\omega sin(\omega t) \hat{j}] = \boldsymbol{ -2b \omega^2 sin(\omega t) \hat{i} - b\omega^2 cos(\omega t) \hat{j} }
+$$
+
+$$
+|\vec{v}| = v = \sqrt{(2b \omega cos(\omega t))^2 + (-b\omega sin(\omega t))^2} = \sqrt{4b^2 \omega^2 cos^2(\omega t) + b^2 \omega^2 sin^2(\omega t)}
+$$
+
+$
+v = \boldsymbol{b \omega \sqrt{4cos^2(\omega t) + sin^2(\omega t)}}
+$
+
+\hfill \break
+
+
+
+(b) What is the angle between $\vec{v}$ and $\vec{a}$ at $t=\frac{\pi}{2\omega}$
+
+$$
+\vec{v}(t) = 2b \omega cos(\omega t) \hat{i} - b\omega sin(\omega t) \hat{j} \rightarrow \vec{v}(\frac{\pi}{2\omega}) = 2b \omega cos(\frac{\pi}{2}) \hat{i} - b\omega sin(\frac{\pi}{2}) \hat{j}
+$$
+
+$$
+\vec{v}(\frac{\pi}{2\omega}) = \sqrt{2}b\omega \hat{i} - b\omega \frac{\sqrt{2}}{2} \hat{j}= b \omega 2\sqrt{2} ((2\hat{i} - \hat{j})
+$$
+
+$$
+|\vec{v}(\frac{\pi}{2\omega})| = \sqrt{8b^{2}\omega^{2}(4 + 1)} = 2b\omega \sqrt{10}
+$$
+
+$$
+\vec{a}(t) = -2b \omega^2 sin(\omega t) \hat{i} - b\omega^2 cos(\omega t) \hat{j} \rightarrow \vec{a}(\frac{\pi}{2\omega}) = -2b \omega^2 sin(\frac{\pi}{2}) \hat{i} - b\omega^2 cos(\frac{\pi}{2}) \hat{j}
+$$
+$
+\vec{a}(\frac{\pi}{2\omega}) = -2b\omega^{2}\sqrt{2}(2\hat{i}+\hat{j})
+$
+
+$$
+|\vec{a}(\frac{\pi}{2\omega})| = \sqrt{8b^{2}\omega^{4}(4+1)} = 2b\omega^{2} \sqrt{10}
+$$
+
+$$
+\vec{a} \cdot \vec{v} = (b\omega 4\sqrt{2} * -b\omega^{2} 4\sqrt{2}) + (-b\omega 2\sqrt{2} * -b\omega^{2} 2\sqrt{2}) = (-32b^{2}\omega^{3} + 8b^{2} \omega^{3}) = -26b^2\omega^3
+$$
+
+$$
+\vec{a} \cdot \vec{v} = |\vec{a}||\vec{v}|cos(\theta) \rightarrow \theta = cos^{-1}(\frac{\vec{a} \cdot \vec{v}}{|\vec{a}||\vec{v}|})
+$$
+
+$$
+\theta = cos^{-1}(\frac{-26b^2\omega^3}{2b\omega^{2} \sqrt{10} * 2b\omega \sqrt{10}}) = cos^{-1}(\frac{-26}{40}) = \boldsymbol{130.542^{\circ}}
+$$
+
+\hfill \break
+
+(3). $\vec{X}$ is an unknown vector satisfying the following relations involving the known vectors $\vec{A}$ and $\vec{B}$ and the scalar $\phi$. Express $\vec{X}$ in terms of $\vec{A}, \vec{B}, \phi, |A|$ 
+
+$$
+\vec{A} \times \vec{X} = \vec{B}
+$$
+
+$
+\vec{A} \cdot \vec{X} = \phi
+$
+
+
+$$
+\vec{A} \times \vec{X} = \vec{B} \rightarrow \vec{A} \times (\vec{A} \times \vec{X}) = \vec{A} \times \vec{B}
+$$
+Using
+$$
+\vec{A} \times (\vec{B} \times \vec{C}) = \vec{B}(\vec{A} \cdot \vec{C}) - \vec{C}(\vec{A} \cdot \vec{B})
+$$
+
+$$
+\vec{A} \times (\vec{A} \times \vec{X}) = \vec{A} \times \vec{B} = \vec{A}(\vec{A} \cdot \vec{X}) - \vec{X}(\vec{A} \cdot \vec{A}) = \vec{A} \times \vec{B}
+$$
+
+$$
+\vec{A} \phi - \vec{X} A^2 = \vec{A} \times \vec{B}
+$$
+
+$$
+\boldsymbol{\vec{X} = \frac{\vec{A} \phi - \vec{A} \times \vec{B}}{A^2}}
+$$
+
+
+\newpage
+
+
+(4) Recover the cosine law of plane trigonometry (a.k.a. the law of cosines) by interpreting the product $(\vec{A} - \vec{B}) \cdot (\vec{A} - \vec{B})$ and the expansion of the product.
+
+\hfill \break
+
+\ell et 
+
+$\vec{C} = \vec{A} - \vec{B}$
+
+$$
+\vec{A} - \vec{B} \cdot \vec{A} - \vec{B} = \vec{C} \cdot \vec{C} = C^2
+$$
+
+$$
+C^2 = (\vec{A} - \vec{B}) \cdot \vec{C} = (\vec{A} \cdot \vec{C}) - (\vec{B} \cdot \vec{C})
+$$
+
+$$
+C^2 = (\vec{A} \cdot (\vec{A} - \vec{B})) - (\vec{B} \cdot (\vec{A} - \vec{B})
+$$
+
+$$
+C^2 = \vec{A} \cdot \vec{A} - \vec{A} \cdot \vec{B} - \vec{B} \cdot \vec{A} + \vec{B} \cdot \vec{B}
+$$
+
+$$
+C^2 = A^2 + B^2 - (\vec{A} \cdot \vec{B} + \vec{B} \cdot \vec{A})
+$$
+
+$$
+C^2 = A^2 + B^2 - (ABcos(\theta) + BAcos(\theta))
+$$
+
+$$
+\boldsymbol{C^2 = A^2 + B^2 - 2ABcos(\theta)}
+$$
+
+
+\end{document}

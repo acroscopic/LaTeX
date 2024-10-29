@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[letter, margin=0.5in]{geometry}
+\usepackage{amsmath, mathrsfs, amssymb} % for various mathematical symbols
+
+\graphicspath{{./images/}}
+
+\setcounter{secnumdepth}{0} % Removes section numbering
+
+\title{Physical Mechanics Homework 4}
+\date{09/22/2024}
+\author{Damien Koon}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\textbf{
+(1). A simple harmonic oscillator consists of a 100-g mass attached to
+a spring whose force constant is $10^4$ dyne/cm. The mass is displaced 3 cm and released from rest. Calculate
+}
+
+(a) The natural frequency $\nu_0$
+
+(b) The natural period $\tau_0$
+
+(c) The total energy
+
+(d) The maximum speed of the mass
+
+$$
+\omega = \sqrt{\frac{k}{m}} \rightarrow \omega = 2 \pi f \implies \nu_0 \Leftrightarrow f = \frac{\sqrt{k/m}}{2\pi}
+$$
+
+$$
+\boldsymbol{f} = \frac{\sqrt{(10^4 dyne/cm)/(100 g)}}{2 \pi} = \boldsymbol{1.6 Hz}
+$$
+
+$$
+\boldsymbol{T} = \frac{1}{f} = \boldsymbol{0.63 s}
+$$
+
+$$
+From \hspace{0.2cm} A^2 = x_0^2 + (\frac{V_0}{\omega_0})^2, \hspace{0.1cm} V_0 = 0 \therefore A = x_0 = 3 cm
+$$
+
+$$
+\boldsymbol{E} = \frac{1}{2}kA^2 = \frac{1}{2}(10^4 dyne/cm)(3 cm)^2 = \boldsymbol{4.5 \times 10^4 ergs}
+$$
+
+$$
+E = T + U \implies T_max = E \therefore E = \frac{1}{2}mv^2
+$$
+
+$$
+\boldsymbol{v} = \sqrt{\frac{2E}{m}} = \sqrt{\frac{2(10^4 ergs)}{100 g}} = \boldsymbol{30 cm/s}
+$$
+
+\newpage
+\textbf{
+(2). The oscillator of Problem 1 is set into motion by giving it an initial velocity of 1 cm/s at its equilibrium position. Calculate
+}
+
+(a) The maximum displacement of the mass
+
+(b) The maximum potential energy
+
+$$
+\Delta E = 0 \implies T + U = T_0 + U_0
+$$
+
+\centering{Initial position is zero, and the final velocity is zero, therefore}
+
+$$
+U = T_0 \implies \frac{1}{2} k x^2 = \frac{1}{2} m v_0^2
+$$
+
+$$
+\boldsymbol{x} = \sqrt{\frac{m v_0^2}{k}} = \sqrt{\frac{(100 g) * (1 \frac{cm}{s})^2}{10^4 dyne/cm}} = \boldsymbol{0.1 \hspace{0.1cm} cm}
+$$
+
+$$
+\boldsymbol{U} = \frac{1}{2} k x^2 = \frac{1}{2}(10^4 dyne/cm)(0.1cm)^2 = \boldsymbol{50 \hspace{0.1cm} ergs}
+$$
+
+\end{document}

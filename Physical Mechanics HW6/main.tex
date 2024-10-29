@@ -1,0 +1,496 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[letter, margin=0.5in]{geometry}
+\usepackage{amsmath, mathrsfs, amssymb, cancel} % for various mathematical symbols
+
+\graphicspath{{./images/}}
+
+\setcounter{secnumdepth}{0} % Removes section numbering
+
+\usepackage{titling}
+\renewcommand\maketitlehooka{\null\mbox{}\vfill}
+\renewcommand\maketitlehookd{\vfill\null}
+
+\title{Physical Mechanics Homework 6}
+\date{10/17/2024}
+\author{Damien Koon}
+
+
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\textbf{
+(1). \newline
+(a). Derive the expression for the energy of a damped oscillator as a function of time. \newline
+(b). Derive the expression for the energy loss rate of a damped oscillator as a function
+of time. \newline
+(c). For a lightly damped oscillator, calculate the average rate at which the oscillator
+loses energy (i.e. compute a time average over one cycle). \newline
+}
+
+From the differential equation:
+$$
+m \ddot{x} + c \dot{x} + k x = 0
+$$
+
+With $\beta = \frac{c}{2m}$ and $\omega_0^2 = \frac{k}{m}$
+
+$$
+\ddot{x} + 2 \beta \dot{x} + \omega_0^2 x = 0
+$$
+
+Which turns into the auxiliary equation:
+$$
+\alpha^2 + 2 \beta \alpha + \omega_0^2 = 0
+$$
+
+Which gives the solution to the auxiliary equation as:
+$$
+\alpha = - \beta \pm \sqrt{\beta^2 - \omega_0^2}
+$$
+
+From (c), it's clear that the oscillation is underdamped, indicating that $\beta  < \omega_0$
+$$
+\alpha = - \beta \pm i \sqrt{\omega_0^2 - \beta^2} = - \beta \pm \omega_1
+$$
+
+With $\omega_1 = \sqrt{\omega_0^2 - \beta^2}$ the solution is 
+
+$$
+x(t) = A e^{- \beta t} cos(\omega_1 t + \phi)
+$$
+
+$$
+\dot{x}(t) = - A \beta e^{- \beta t} cos(\omega_1 t + \phi) - \omega_1 A e^{- \beta t} sin(\omega_1 t + \phi)
+$$
+
+With $p = \omega_1 t + \phi$
+$$
+x^2(t) = A^2 e^{-2 \beta t} cos^2(p)
+$$
+
+$$
+\dot{x}^2(t) = A^2 \beta^2 e^{-2 \beta t} cos^2(p) + A^2 \omega_1^2 e^{-2 \beta t} sin^2(p) + 2 A^2 \beta \omega_1 cos(p) sin(p)
+$$
+
+$$
+E = T + U = \frac{1}{2} m \dot{x}^2 + \frac{1}{2}k x^2 = \frac{1}{2}m(\dot{x}^2 + \omega_0^2 x)
+$$
+
+Inputting $x^2(t)$ and $\dot{x}^2(t)$ into E,
+$$
+E = \frac{1}{2} m A^2 e^{-2 \beta t}( \beta^2 cos^2(p) + \omega_1^2 sin^2(p) + 2 \beta \omega_1 cos(p) sin(p) + \omega_0^2 cos^2(p))
+$$
+\newpage
+$$
+E = \frac{1}{2} m A^2 e^{-2 \beta t} ( (\beta^2 + \omega_0^2)cos^2(p) + (\omega_0^2 - \beta^2)sin^2(p) + \beta \omega_1 sin(2p))
+$$
+
+$$
+E = \frac{1}{2} m A^2 e^{-2 \beta t} ( \beta^2 (cos^2(p) - sin^2(p)) + \omega_0^2 ( sin^2(p) + cos^2(p) ) + \beta \omega_1 sin(2p) )
+$$
+
+$$
+E(t) = \frac{1}{2} m A^2 e^{-2 \beta t} ( \beta^2 cos(2p) + \beta \omega_1 sin(2p) + \omega_0^2 )
+$$
+
+$$
+\dot{E} = - m A^2 \beta e^{-2 \beta t} ( \beta^2 cos(2p) + \beta \omega_1 sin(2p) + \omega_0^2 ) + \frac{1}{2} m A^2 e^{-2 \beta t} (-2 \beta^2 \omega_1 sin(2p) + 2 \beta \omega_1^2 cos(2p) )
+$$
+
+$$
+\dot{E} = - m A^2 \beta e^{-2 \beta t} ( \beta^2 cos(2p) + \beta \omega_1 sin(2p) + \omega_0^2 + \beta \omega_1 sin(2p) - \omega_1^2 cos(2p) )
+$$
+
+$$
+\dot{E} = - m A^2 \beta e^{-2 \beta t} (( \beta^2 - \omega_1^2 )cos(2p) + 2 \beta \omega_1 sin(2p) + \omega_0^2 ) 
+$$
+
+Let $\beta << \omega_0$
+
+$$
+\omega_1 = \sqrt{\omega_0^2 - \beta^2} = \omega_0 \sqrt{1 - \frac{\beta^2}{\omega_0^2}}
+$$
+
+For small $\beta$, 
+$$
+\beta^2 \approx 0 \therefore \omega_1 = \omega_0
+$$
+
+From this, the sin(2p) and cos(2p) terms go to 0, and the only term remaining is the $\omega_0^2$ term
+$$
+\dot{E} \approx - m A^2 \beta \omega_0^2 e^{-2 \beta t}
+$$
+
+
+
+\newpage
+\textbf{
+(2). The amplitude of a weakly-damped oscillator (i.e. $\beta << 1$)
+decreases to $\frac{1}{e}$ of its initial value after n complete cycles. Show that the ratio of the period of
+the oscillator to the period of the same oscillator with no damping is given by
+}
+
+$$
+\frac{\tau_1}{\tau_0} \approx \sqrt{1+\frac{1}{4 \pi^2 n^2}}
+$$
+
+From Newton's 2nd law,
+$$
+m\ddot{x} + c \dot{x} + k x = 0
+$$
+$$
+\beta = \frac{c}{2m} \hspace{1cm} \omega_0^2 = \frac{k}{m}
+$$
+
+$$
+\ddot{x} + 2 \beta \dot{x} + \omega_0^2 x = 0
+$$
+
+With the auxiliary equation and solutions, 
+$$
+\alpha^2 + 2 \beta \alpha + \omega_0^2 = 0
+$$
+
+$$
+\alpha = -\beta \pm \sqrt{\beta^2 - \omega^2_0}
+$$
+$$
+\alpha = -\beta \pm i\sqrt{\omega_0^2 - \beta^2_0}
+$$
+
+With $\omega_1 = \sqrt{\omega_0^2 - \beta^2}$
+$$
+\alpha = - \beta \pm i \omega_1
+$$
+
+
+Therefore the solution to the differential equation is,
+$$
+x(t) = Ae^{-\beta t} cos(\omega_1 t + \phi)
+$$
+
+Where the amplitude,
+$$
+A(t) = A_0 e^{- \beta t}
+$$
+
+$\matchscr{L}$et $t = n\tau_0$
+
+$$
+A(t_n) = \frac{A_0}{e} = A_0 e^{- \beta \taU_0} \rightarrow \frac{1}{e} = e^{- \beta \tau_0}
+$$
+
+$$
+n \beta \tau_0 = 1 \implies \beta = \frac{1}{n \tau_0} = \frac{\omega_0}{2 \pi n}
+$$
+
+$$
+\omega^2_1 = \omega^2_0 - \beta^2 \implies \omega^2_0 = \omega^2_1 + \beta^2
+$$
+
+Using the previous definition of $\beta$
+$$
+\omega_0 = \sqrt{\omega_1^2 + \frac{\omega_1^2}{4 \pi^2 n^2}} = \omega_1 \sqrt{1 + \frac{1}{4 \pi^2 n^2}}
+$$
+
+$$
+\frac{\tau_1}{\tau_0} = \frac{\omega_0}{\omega_1} = \cancel{\frac{\omega_1}{\omega_1}} \sqrt{1 + \frac{1}{4 \pi^2 n^2}}
+$$
+Using the Taylor series approximation of $\sqrt{1+\frac{1}{x}} = 1 + \frac{1}{2x}$ and for $n >> 1$
+
+$$
+\boldsymbol{
+\frac{\tau_1}{\tau_0} = 1 + \frac{1}{8 \pi^2 n^2}
+}
+$$
+
+\newpage
+\textbf{
+(3). Show that} $x(t) = (A + Bt)e^{-\beta t}$ \textbf{ is indeed the solution for critical damping by assuming a solution of the form} $x(t) = y(t) e^{-\beta t}$ \textbf{ and determining the function} $y(t)$
+
+\hspace{0.5cm}
+
+From $x(t) = y(t) e^{- \beta t}$
+
+$$
+x = y e^{-\beta t}
+$$
+
+$$
+\dot{x} = \dot{y} e^{- \beta t} - y \beta e^{- \beta t}
+$$
+
+$$
+\Ddot{x} = \ddot{y} e^{- \beta t} - \beta \dot{y} e^{- \beta t} - \beta \dot{y} e^{- \beta t} + y \beta^2 e^{- \beta t}
+$$
+
+$$
+\ddot{x} = \ddot{y} e^{- \beta t} - 2 \beta \dot{y} e^{- \beta t} + y \beta^2 e^{- \beta t}
+$$
+
+For a critically damped oscillator,
+$$
+\beta = \frac{c}{2m} \hspace{2cm} \omega_0^2 = \frac{k}{m} = \beta^2
+$$
+
+From Newton's 2nd law in differential form,
+$$
+m \Ddot{x} + c \dot{x} + kx = 0
+$$
+
+$$
+\Ddot{x} + 2 \beta \dot{x} + \omega_0^2 x = 0
+$$
+
+$$
+\Ddot{x} + 2 \beta \dot{x} + \beta^2 x = 0
+$$
+
+Inputting $x$, $\dot{x}$, and $\ddot{x}$ into the differential equation, 
+$$
+e^{-\beta t} ( \ddot{y} - 2 \dot{y} \beta + y \beta^2 + 2 \dot{y} \beta - 2 \beta^2 y + \beta^2 y ) = 0
+$$
+
+After reducing, the expression becomes 
+
+$$
+e^{- \beta t} \ddot{y} = 0 \implies \ddot{y} = 0
+$$
+
+After integrating,
+$$
+y(t) = A + Bt
+$$
+
+Therefore, 
+$$
+\boldsymbol{x(t) = (A + Bt) e^{-\beta t}}
+$$
+
+
+
+\newpage
+\textbf{
+(4). A grandfather clock has a pendulum length of 0.7 m (with ignorable mass)
+and a bob at the end of mass 0.4 kg. A second mass of 2 kg falls 0.8 m in seven days to keep
+the amplitude of the pendulum’s oscillation steady at 0.03 rad. What is the quality factor Q of the system?
+}
+
+$\mathscr{L}$et A = 0.03 rad, $m_1 = 0.4 kg$, $\ell_1 = 0.7m$, $m_2 = 2 kg$, $\ell_2 = 0.8m$
+
+\vspace{0.5cm}
+
+Consider the pendulum of the grandfather clock to be undamped,
+
+$$
+m \ddot{x} = m \ell \ddot{\theta}
+$$
+
+$$
+m \ell \ddot{\theta} + mg sin(\theta) = 0
+$$
+
+For very small $\theta$, assume $sin(\theta) \approx \theta$,
+
+$$
+\ell \ddot{\theta} + g \theta = 0
+$$
+
+With $\frac{g}{\ell} = \omega_0^2$
+$$
+\ddot{\theta} + \omega_0^2 \theta = 0
+$$
+
+Which has the solution,
+$$
+\theta(t) = A cos(\omega_0 t + \phi)
+$$
+
+Which follows that,
+$$
+\dot{\theta}(t) = -A \omega_0 sin(\omega_0 t + \phi)
+$$
+$$
+\theta^2(t) = A^2 cos^2(\omega_0 t + \phi)
+$$
+$$
+\dot{\theta}^2(t) = A^2 \omega_0^2 sin^2(\omega_0 t + \phi)
+$$
+
+From this,
+$$
+E = \frac{1}{2} m \dot{x}^2 + \frac{1}{2}kx^2 = \frac{1}{2}m(\dot{x}^2 + \omega_0^2 x^2) = \frac{1}{2} m \ell^2 (\dot{\theta} + \omega_0^2 \theta)
+$$
+$$
+E = \frac{1}{2} m \ell^2 \omega_0^2 A^2 ( sin^2(\omega_0 t + \phi) + cos^2(\omega_0 t + \phi) ) = \frac{1}{2} m \ell^2 \omega_0^2 A^2 = \frac{1}{2} m A^2 \ell^2 \frac{g}{\ell} = \frac{1}{2} m A^2 \ell g
+$$
+
+An alternate solution to E follows as such,
+
+Assume that the pendulum is at the end of its period. 
+Thus, the pendulum has max potential energy and no kinetic energy
+
+The height of the mass at the end of the pendulum is
+$$
+h = (\ell_1 - \ell_1 cos(A)
+$$
+
+$$
+U = m_1 g h = m_1 g (\ell_1 - \ell_1 cos(0.03 rad))
+$$
+
+To find the max value of kinetic energy, use the velocity, $v = \frac{distance}{time} = \frac{\ell_1}{7 days}$
+
+$$
+K = \frac{1}{2} m_1 v^2 = \frac{1}{2} m_1 (\frac{\ell_1}{7 days})^2
+$$
+
+$$
+E = K + U = \frac{1}{2} m_1 (\frac{\ell_1}{7 days})^2 + m_1 g (\ell_1 - \ell_1 cos(0.03 rad))
+$$
+
+Both of these values of E are equivalent. The initial value will be used.
+
+To find the number of cycles of the pendulum over 7 days,
+$$
+\tau = 2 \pi \sqrt{\frac{\ell_1}{g}} = 2 \pi \sqrt{\frac{0.7 m}{ 9.81 \frac{m}{s^2}}} = \frac{1.68 s}{cycle}
+$$
+
+$$
+\frac{7 days}{1.68s} = \frac{7\hspace{0.1cm} days * 24\hspace{0.1cm} hours * 3600 s}{1.68 s} = 360000\hspace{0.1cm} cycles
+$$
+
+Considering the total energy of the system of the 2nd mass and length,
+$$
+\Delta E = \frac{energy}{cycles} = \frac{m_2 g \ell_2}{360000} = 4.36 \times 10^{-5} J
+$$
+
+$$
+Q = 2 \pi \frac{E}{\Delta E} = 2 \pi \frac{\frac{1}{2} m_1 A^2 \ell g}{4.36 \times 10^{-5}} = 178
+$$
+
+\newpage
+\textbf{
+(5). An overdamped oscillator can overshoot x = 0 before eventually returning to
+that position. \newline
+(a). Show that in order for this to occur, the initial displacement $x_0$ and initial velocity $v_0$ must satisfy the condition \newline
+$$
+v_0 = x_0 [-\beta - \frac{\omega_2}{tanh(\omega_2 t)}]
+$$
+(b). Assuming that both $\beta$ and $\omega_2$ are positive real numbers, what conclusion can you
+draw about the vector quantities (i.e. magnitude and direction) $x_0$ and $v_0$ \newline
+}
+
+
+
+From the differential equation:
+$$
+m \ddot{x} + c \dot{x} + k x = 0
+$$
+
+With $\beta = \frac{c}{2m}$ and $\omega_0^2 = \frac{k}{m}$
+
+$$
+\ddot{x} + 2 \beta \dot{x} + \omega_0^2 x = 0
+$$
+
+which turns into the auxiliary equation:
+
+$$
+\alpha^2 + 2 \beta \alpha + \omega_0^2 = 0
+$$
+
+With $\omega_2 = \sqrt{\beta^2 - \omega_0^2}$
+$$
+\alpha = - \beta \pm \omega_2
+$$
+
+Which produces the solution
+$$
+x(t) = A_1 e^{-(\beta - \omega_2) t} + A_2 e^{-(\beta + \omega_2) t}
+$$
+
+Which follows that,
+$$
+\dot{x}(t) = -A_1 (\beta - \omega_2) e^{-(\beta - \omega_2) t} - A_2 (\beta + \omega_2) e^{-(\beta + \omega_2) t}
+$$
+
+$$
+x(0) = A_1 + A_2
+$$
+
+$$
+\dot{x}(0) = - A_1 ( \beta - \omega_2 ) - A_2 ( \beta + \omega_2 )
+$$
+
+From the definitions of $x(0) = x_0$ and $\dot{x}(0) = v_0$, the definitions of $A_1$ and $A_2$ follow as such,
+
+$$
+A_1 = \frac{x_0 ( \beta + \omega_2 ) + v_0}{2 \omega_2}
+$$
+$$
+A_2 = -\frac{x_0 ( \beta - \omega_2 ) + v_0}{2 \omega_2}
+$$
+
+
+$\mathscr{L}$et x(t) = 0,
+$$
+A_1 e^{-(\beta - \omega_2) t} + A_2 e^{-(\beta + \omega_2) t} = 0 
+$$
+
+$$
+A_1 e^{-(\beta - \omega_2) t} = - A_2 e^{-(\beta + \omega_2) t}
+$$
+
+$$
+- \frac{A_2}{A_1} = \frac{e^{-(\beta - \omega_2) t}}{e^{-(\beta + \omega_2) t}} = e^{2 \omega_2 t}
+$$
+
+$$
+e^{2 \omega_2 t} = - \frac{A_2}{A_1} = \frac{x_0 ( \beta - \omega_2 ) + v_0}{x_0 ( \beta + \omega_2 ) + v_0}
+$$
+
+From this definition and some algebra,
+
+$$
+x_0 ( \beta - \omega_2 ) + v_0 = e^{2 \omega_2 t} ( x_0 ( \beta + \omega_2 ) + v_0 )
+$$
+
+$$
+x_0 ( \beta - \omega_2 - e^{2 \omega_2 t} (\beta + \omega_2) ) = v_0 ( e^{2 \omega_2 t} - 1 )
+$$
+
+$$
+x_0 ( \beta ( 1 - e^{2 \omega_2 t} ) - \omega_2 (1 + e^{2 \omega_2 t} ) ) = v_0 ( e^{2 \omega_2 t} - 1 )
+$$
+
+$$
+x_0 ( - \beta - \omega_2 (\frac{1 + e^{2 \omega_2 t}}{e^{2 \omega_2 t} -1})) = v_0
+$$
+
+Thus,
+$$
+v_0 = x_0 [-\beta - \frac{\omega_2}{tanh(\omega_2 t)}]
+$$
+
+$\mathscr{L}et$ $x_0$, $v_0$ \in \mathbb{R} > 0
+
+From the definition of $v_0$,
+
+$$
+- v_0 = x_0 [\beta \frac{\omega_2}{tanh(\omega_2 t)}]
+$$
+
+Thus, the magnitude of $x_0$ and $v_0$ is
+$$
+x_0 > 0 \hspace{0.5cm} v_0 < 0
+$$
+
+The direction of $v_0$ is always toward the origin, and the direction of $x_0$ is oppisite to $v_0$
+
+
+\end{document}

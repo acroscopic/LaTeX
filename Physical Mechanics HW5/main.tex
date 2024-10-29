@@ -1,0 +1,188 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage[letter, margin=0.5in]{geometry}
+\usepackage{amsmath, mathrsfs, amssymb} % for various mathematical symbols
+
+\graphicspath{{./images/}}
+
+\setcounter{secnumdepth}{0} % Removes section numbering
+
+\title{Physical Mechanics Homework 5}
+\date{10/01/2024}
+\author{Damien Koon}
+
+\begin{document}
+
+\maketitle
+
+\newpage
+\textbf{
+(1). Two masses $m_1 = 100 g$ and $m_2 = 200 g$ slide freely on a horizontal frictionless track and are connected by a spring whose force constant is $k = 0.5 N/m.$ Find the frequency of oscillatory motion for this system. (Hint: assume that the natural length of the spring is $\ell$. How does that relate to the positions of the masses at any given time?)
+}
+
+$$\Vec{F} = m \ddot{x} = -kx$$
+
+$$
+m_1 \ddot{x_1} = -k ( x_1 - x_2 + \ell)
+$$
+
+$$
+m_2 \ddot{x_2} = -k ( x_2 - x_1 - \ell) \rightarrow x_1 = \frac{m_2 \ddot{x_2} + k x_2 - k \ell}{k}
+$$
+
+Substituting $x_1$ into the first equation for $x_1$ gives
+$$
+m_1 \ddot{x_1} = -k(x_2 -x_2 + \ell - \ell) - m_2 \ddot{x_2} \rightarrow m_1 \ddot{x_1} = - m_2 \ddot{x_2}
+$$
+
+$$
+x_1 = \frac{m_2 \ddot{x_2} + k x_2 - k \ell}{k} \implies \ddot{x_1} = \frac{d^2}{dt^2}(\frac{m_2 \ddot{x_2} + k x_2 - k \ell}{k})
+$$
+
+Substituting $\ddot{x_1}$ into $m_1 \ddot{x_1} = - m_2 \ddot{x_2}$ gives
+
+$$
+m_1 \frac{d^2}{dt^2}(\frac{m_2 \ddot{x_2} + k x_2 - k \ell}{k}) = - m_2 \ddot{x_2}
+$$
+
+$m_1,m_2, k$, and $\ell$ are constants, thus the equation can be rewritten as
+
+$$
+\frac{m_1 m_2}{k} \frac{d^2}{dt^2}(\ddot{x_2}) + m_1 \ddot{x_2} + m_2 \ddot{x_2} = 0
+$$
+
+$$
+\frac{d^2}{dt^2}(\ddot{x_2}(\frac{m_1 m_2}{k}) + {x_2}(m_1 + m_2)) = 0 \implies \ddot{x_2}(\frac{m_1 m_2}{k}) + {x_2}(m_1 + m_2) = 0
+$$
+
+From this, the equation can be written into the form of the differential equation 
+
+$$\ddot{x} + \omega_0^2 x = 0 \rightarrow \ddot{x} + \frac{k}{m} x = 0$$
+
+with m being the sum of the inverse masses 
+$$
+\frac{1}{m} = \frac{1}{m_1} + \frac{1}{m_2} = \frac{m_1 + m_2}{m_1 m_2}
+$$
+
+$$
+\therefore \omega^2 = \frac{k(m_1 + m_2)}{m_1 m_2} \implies \omega = \sqrt{\frac{k(m_1 + m_2)}{m_1 m_2}} 
+$$
+
+$$
+\boldsymbol{\omega} = \sqrt{\frac{0.5 \frac{N}{m}(0.1 kg + 0.2 kg)}{0.1 kg * 0.2 kg}} = \boldsymbol{2.74 Hz}
+$$
+
+\newpage
+\textbf{
+(2). On the surface of the Moon, the acceleration of gravity is about one sixth that on the surface of Earth. What is the period of a simple pendulum of length $1 m$ on the Moon?
+}
+
+$$
+F = m \ddot{x} = - mg sin(\theta)
+$$
+
+$$
+\ddot{x} = -g sin(\theta)
+$$
+
+Using $\ell \theta = s \implies \ell \ddot{\theta} = \ddot{s}$
+
+$$
+\ddot{s} + g sin(\theta) = 0
+$$
+
+$$
+\ell \ddot{\theta} + gsin(\theta) = 0
+$$
+
+For $\theta < 20^{\circ}, sin(\theta) \approx \theta$ thus,
+
+$$
+\ddot{\theta} + \frac{g}{\ell} \theta = 0
+$$
+
+This differential equation can be mapped to $\ddot{x} + \omega^2 x = 0$, thus
+
+$$
+\ddot{\theta} + \frac{g}{\ell} \theta = 0 \Longleftrightarrow \ddot{x} + \omega^2 x = 0
+$$
+
+$$\omega^2 = \frac{g}{\ell}$$
+
+
+
+$$
+\omega_0 = \sqrt{\frac{g}{\ell}}
+$$
+
+$$
+T = 2 \pi \sqrt{\frac{\ell}{g}}
+$$
+
+$$
+\boldsymbol{T} = 2 \pi \sqrt{\frac{1m}{9.81 \frac{m}{s^2} / 6}} = \boldsymbol{4.91 s}
+$$
+\newpage
+
+\textbf{
+(3). Two springs with stiffnesses $k_1$ and $k_2$ are used in a vertical position to support a single object of mass $m$.}
+\newline
+
+\textbf{
+(a). Show that the angular speed of oscillation is $\omega_0 = \sqrt{\frac{k_1 + k_2}{m}}$ if the springs are connected in parallel.
+}
+\newline
+
+\textbf{
+(b). Show that the angular speed of oscillation is $\omega_0 = \sqrt{\frac{k_1 k_2}{(k_1 + k_2)m}}$ if the springs are connected in series.
+} \newline 
+
+For a system of springs connected in parallel, $k_{eq} = k_1 + k_2$, thus
+
+$$
+F = m \ddot{x} = -k x = -x (k_1 + k_2)
+$$
+
+$$
+\ddot{x} + x (\frac{k_1 + k_2}{m}) = 0
+$$
+
+Which is equivalent to the differential equation
+
+$$
+\ddot{x} + x (\frac{k_1 + k_2}{m}) = 0 \Longleftrightarrow \ddot{x} + \omega_0^2 x = 0
+$$
+
+$$
+\therefore \omega_0^2 = \frac{k_1 + k_2}{m} \implies \boldsymbol{\omega_0 = \sqrt{\frac{k_1 + k_2}{m}}}
+$$
+
+For a system of springs connected in series, $\frac{1}{k_{eq}} = \frac{1}{k_1} + \frac{1}{k_2}$
+
+$$
+\frac{1}{k_{eq}} = \frac{1}{k_1} + \frac{1}{k_2} \implies k_{eq} = \frac{k_1 k_2}{k_1 + k_2}
+$$
+
+$$
+F = m \ddot{x} = -k x = - x (\frac{k_1 k_2}{k_1 + k_2})
+$$
+
+$$
+m \ddot{x} + x (\frac{k_1 k_2}{k_1 + k_2}) = 0
+$$
+
+$$
+\ddot{x} + x (\frac{k_1 k_2}{m(k_1 + k_2)}) = 0
+$$
+
+This equation is equivalent to the differential equation
+
+$$
+\ddot{x} + x (\frac{k_1 k_2}{m(k_1 + k_2)}) = 0 \Longleftrightarrow \ddot{x} + \omega_0^2 x = 0
+$$
+
+This implies that
+$$
+\omega_0^2 = \frac{k_1 k_2}{m(k_1 + k_2)} \implies \boldsymbol{\omega_0 = \sqrt{\frac{k_1 k_2}{m(k_1 + k_2)}}}
+$$
+\end{document}
